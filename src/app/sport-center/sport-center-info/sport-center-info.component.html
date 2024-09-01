@@ -1,0 +1,65 @@
+<!-- <label>
+  <input type="radio" [(ngModel)]="selectedGender" value="Male"> Male
+</label>
+<label>
+  <input type="radio" [(ngModel)]="selectedGender" value="FeMale"> Female
+</label>
+<p>Selected Gender: {{ selectedGender }}</p> -->
+
+<mat-toolbar>
+  <mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" class="mr-2">home</mat-icon>
+  <span>公共資訊整合平台</span>
+</mat-toolbar>
+
+<section>
+  <div class="flex justify-center">
+    <form [formGroup]="parkSearchform" class="mt-4 min-w-48 max-w-96 w-full">
+      <div class="flex">
+        <mat-form-field appearance="fill" class="w-full mr-3">
+          <input matInput formControlName="searchWord">
+          <mat-hint>必填</mat-hint>
+        </mat-form-field>
+        <button mat-flat-button class="mat-primary" (click)="search()">搜尋</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+
+
+<section class=" xl:p-14">
+  <h2 class="mat-primary">| 停車塲資訊</h2>
+  <div class="flex flex-wrap">
+    <div class="xl:basis-1/4 md:basis-1/3 sm:basis-1/2 p-2" *ngFor="let park of parkingdata">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ park.id }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ park.availablecar }}</p>
+          <p>{{ park.availablemotor }}</p>
+        </mat-card-content>
+        <div class="flex justify-end p-2">
+          <button mat-raised-button color="primary" routerLink="/header">查看更多</button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</section>
+
+
+<!-- 模板插入使用 -->
+<ng-template #error404 let-message="message">
+  <div class="error">404: {{message}}</div>
+</ng-template>
+
+<ng-template #error500 let-message="message">
+  <div class="error">500: {{message}}</div>
+</ng-template>
+
+<ng-template #defaultError let-message="message">
+  <div class="error">Error: {{message}}</div>
+</ng-template>
+
+<div *ngTemplateOutlet="getErrorTemplate(); context:{message: errorMessage}"></div>

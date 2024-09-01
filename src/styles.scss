@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Import Tailwind CSS styles */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+/* Import Angular Material custom theme */
+
+@import 'themes/custom-theme';
+
+:root {
+  --mat-primary: #003d33;
+  --mat-warn: #cd5500;
+  /* 這是 Angular Material 的 primary 顏色 */
+}
+
+.mat-primary {
+  color: var(--mat-primary);
+}
+
+.mat-warn {
+  color: var(--mat-warn);
+}

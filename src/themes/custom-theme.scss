@@ -1,0 +1,122 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$my-custom-primary-palette: (
+  50: #E0F2F1,
+  100: #B9E2E0,
+  200: #80CBC4,
+  300: #4DB6AC,
+  400: #26A69A,
+  500: #0B6477,
+  // 主要颜色
+  // 600: #004d40,
+  700: #003d33,
+  800: #002d26,
+  900: #001c1a,
+  A100: #64FFDA,
+  A200: #1DE9B6,
+  A400: #00BFAE,
+  A700: #00A896,
+  contrast: (50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white, // 对比色
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: black,
+    A200: black,
+    A400: black,
+    A700: black,
+  ),
+);
+
+$my-custom-accent-palette: (
+  50: #F5F5F5,
+  100: #E0E0E0,
+  200: #CCCCCC,
+  300: #B8B8B8,
+  400: #A4A4A4,
+  500: #CDD1C4,
+  // 主要颜色
+  600: #8E8E8E,
+  700: #6B6B6B,
+  800: #4D4D4D,
+  900: #2D2D2D,
+  A100: #D5D5D5,
+  A200: #BFBFBF,
+  A400: #9E9E9E,
+  A700: #757575,
+  contrast: (50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87), // 500色调的对比色
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: rgba(black, 0.87),
+  ),
+);
+
+// 定义自定义警告调色板
+$my-custom-warn-palette: (
+  50: #FFF3E0,
+  100: #FFE0B2,
+  200: #FFCC80,
+  300: #FFB74D,
+  400: #FFA726,
+  500: #FF7D00,
+  // 主要颜色
+  600: #FB8C00,
+  700: #F57C00,
+  800: #EF6C00,
+  900: #E65100,
+  A100: #FFD180,
+  A200: #FFAB40,
+  A400: #FF9100,
+  A700: #FF6D00,
+  contrast: (50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: rgba(black, 0.87),
+    A200: rgba(black, 0.87),
+    A400: rgba(black, 0.87),
+    A700: rgba(black, 0.87),
+  ),
+);
+
+
+
+
+// 使用 mat.define-palette 定义主要调色板
+$my-primary: mat.define-palette($my-custom-primary-palette, 500, 100, 700);
+
+// $my-primary: mat.define-palette(mat.$orange-palette, 500);
+
+$my-accent: mat.define-palette($my-custom-accent-palette, 500);
+
+$my-warn: mat.define-palette($my-custom-warn-palette, 500);
+
+$my-theme: mat.define-light-theme((color: (primary: $my-primary,
+        accent: $my-accent,
+        warn: $my-warn )));
+
+
+@include mat.all-component-themes($my-theme);
