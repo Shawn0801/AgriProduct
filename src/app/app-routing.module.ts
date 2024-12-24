@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './common-page/header/header.component';
-import { SportCenterInfoComponent } from './sport-center/sport-center-info/sport-center-info.component';
+import { SportCenterInfoComponent } from './public-info/sport-center-info/sport-center-info.component';
 
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },

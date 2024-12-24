@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>請確認停車號碼: {{data.choosenIndex+1}}</p>
+  <mat-form-field appearance="fill">
+    <mat-label>停車塲：</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">取消</button>
+  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>可以</button>
+</div>

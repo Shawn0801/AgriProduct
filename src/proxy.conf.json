@@ -25,5 +25,14 @@
     "pathRewrite": {
       "^/planetApi": ""
     }
+  },
+  "/airApi": {
+    "target": "https://tpdep.blob.core.windows.net",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/airApi": ""
+    }
   }
 }

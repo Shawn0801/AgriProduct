@@ -51,9 +51,21 @@ export class SportService {
   /**
    * 圖鑑資料
    * @returns
+   * https://data.moa.gov.tw/open_detail.aspx?id=047
    */
-  getPlanetData(year: number): Observable<any> {
-    const apiUrl = `/planetApi/api/v1/PlantEpidemicType/?Year=${year}`;
+  getPlanetData(): Observable<any> {
+    const apiUrl = '/planetApi/Service/OpenData/FromM/PestNoticeData.aspx';
+    return this.http.get<any>(apiUrl);
+  }
+
+  /**
+   * 空氣品質資料 error
+   * @returns
+   * https://data.gov.tw/dataset/145702
+   */
+  getAirData(): Observable<any> {
+
+    const apiUrl = '/airApi/techdep/tldep_AQI_DAYHour.json';
     return this.http.get<any>(apiUrl);
   }
 

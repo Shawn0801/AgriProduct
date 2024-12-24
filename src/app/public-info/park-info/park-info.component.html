@@ -1,0 +1,39 @@
+<div *ngIf="parkData; else noData">
+  <!-- <div *ngFor="let item of parkData.data?.park">
+    <div>{{ item.name }}</div>
+  </div> -->
+
+  <table mat-table [dataSource]="parkDataList" class="mat-elevation-z8 demo-table">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element; let i = index">{{element.id}}
+        <button mat-raised-button color="primary" (click)="openDialog(i)">選擇</button>
+      </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{element.area}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>Select</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-radio-button [value]="element.id" (change)="onRadioChange(element.id)"></mat-radio-button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <button mat-raised-button color="primary" (click)="cleaer()">清除</button>
+
+
+  <!-- 其他顯示 parkData 的邏輯 -->
+</div>
+<button mat-raised-button color="primary" (click)="chooseItem()">選擇</button>
+<ng-template #noData>
+  <p>No park data available.</p>
+</ng-template>
